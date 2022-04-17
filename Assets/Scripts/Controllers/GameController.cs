@@ -41,6 +41,6 @@ public class GameController : MonoBehaviour
 
     private void OnDestroy()
     {
-        MainManager.Instance.SetScore(score);
+        MainManager.Instance.SetCurrentUserScore(score);
     }
 }

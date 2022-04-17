@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
         UpdateCurrentUser();   
     }
 
-    void UpdateCurrentUser()
+    public void UpdateCurrentUser()
     {
         if (MainManager.Instance.UL.currentUser != -1)
         {

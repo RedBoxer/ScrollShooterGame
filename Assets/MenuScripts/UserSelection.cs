@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class UserSelection : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class UserSelection : MonoBehaviour
             {
                 userButtons[buttonNum].GetComponentInChildren<Text>().text = user.Name;
             }
+            else
+            {
+                userButtons[buttonNum].GetComponentInChildren<Text>().text = "empty";
+            }
 
             buttonNum++;
         }
@@ -50,16 +55,15 @@ public class UserSelection : MonoBehaviour
         {
             if (inDeleteMode)
             {
-                MainManager.Instance.users[0].Name = "";
-                MainManager.Instance.users[0].HighScore = 0;
+                DeleteUser(0);
             }
-            else
+            else 
             {
                 MainManager.Instance.SetCurrentUser(0);
                 SceneManager.LoadScene(1);
             }
         }
-        else
+        else if (!inDeleteMode)
         {
             MainManager.Instance.SetCurrentUser(0);
             UserCreation.gameObject.SetActive(true);
@@ -73,8 +77,7 @@ public class UserSelection : MonoBehaviour
         {
             if (inDeleteMode)
             {
-                MainManager.Instance.users[1].Name = "";
-                MainManager.Instance.users[1].HighScore = 0;
+                DeleteUser(1);
             }
             else
             {
@@ -82,7 +85,7 @@ public class UserSelection : MonoBehaviour
                 SceneManager.LoadScene(1);
             }
         }
-        else
+        else if (!inDeleteMode)
         {
             MainManager.Instance.SetCurrentUser(1);
             UserCreation.gameObject.SetActive(true);
@@ -96,8 +99,7 @@ public class UserSelection : MonoBehaviour
         {
             if (inDeleteMode)
             {
-                MainManager.Instance.users[2].Name = "";
-                MainManager.Instance.users[2].HighScore = 0;
+                DeleteUser(2); 
             }
             else
             {
@@ -105,7 +107,7 @@ public class UserSelection : MonoBehaviour
                 SceneManager.LoadScene(1);
             }
         }
-        else
+        else if (!inDeleteMode)
         {
             MainManager.Instance.SetCurrentUser(2);
             UserCreation.gameObject.SetActive(true);
@@ -113,8 +115,31 @@ public class UserSelection : MonoBehaviour
         }
     }
 
+    void DeleteUser(int user)
+    {
+        File.Delete(Application.persistentDataPath + "/" + MainManager.Instance.users[user].Name + ".json");
+        MainManager.Instance.users[user].Name = "";
+        MainManager.Instance.users[user].HighScore = 0;
+        MainManager.Instance.SetCurrentUser(-1);
+        LoadUsersToSelection();
+        FindObjectOfType<MenuController>().UpdateCurrentUser();
+    }
+
     public void onSwitchMode()
     {
         inDeleteMode = !inDeleteMode;
+        if (inDeleteMode)
+        {
+            currentMode.text = "Delete user";
+        }
+        else
+        {
+            currentMode.text = "Choose user";
+        }
+    }
+
+    public void onBackPressed()
+    {
+        gameObject.SetActive(false);
     }
 }

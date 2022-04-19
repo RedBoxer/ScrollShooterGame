@@ -22,41 +22,68 @@ public class PlayerController : MonoBehaviour
 
     private int horBound = 31;
     private int verBound = 16;
-    
+
+    Camera camera;
+    Vector3 touchPos;
+
     // Start is called before the first frame update
-    
+
     void Start()
     {
         startTime = Time.fixedTime;
         healthPoints = maxHealth;
         healthBarInitialSize = HealthBar.transform.localScale.x;
         Debug.Log(healthBarInitialSize);
+        camera = Camera.main;
+        
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         currentTime = Time.fixedTime;
 
         /////////////////////////////////
         /// if space pressed spawn bullet every shotDelay seconds
-        if (Input.GetKey(KeyCode.Space)
-            && (currentTime - startTime) >= shotDelay)
+#if UNITY_ANDROID
+        if (Input.touchCount >= 1)
         {
-            Instantiate(bullet, this.transform.position, bullet.transform.rotation);
-           
-            startTime = currentTime;
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                touchPos = touch.deltaPosition;
+                transform.position = new Vector3(transform.position.x + touchPos.x * 0.04f, transform.position.y + touchPos.y * 0.04f, transform.position.z);
+            }
+
+        if(
+#else
+        if (Input.GetKey(KeyCode.Space) &&
+#endif
+         (currentTime - startTime) >= shotDelay)
+        {
+                Instantiate(bullet, this.transform.position, bullet.transform.rotation);
+
+                startTime = currentTime;
         }
+#if UNITY_ANDROID
+        }
+#endif
     }
 
     void FixedUpdate()
     {
+#if !UNITY_ANDROID
         ////////////////////////////////
         //make player move left or right on pressing a/d or left right arrow
         if (transform.position.x <= horBound && transform.position.x >= -horBound)
         {
+            
+
+            
             horizontalInput = Input.GetAxis("Horizontal");
             transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
+
         }
         else
         {
@@ -86,6 +113,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(this.transform.position.x, retPos);
         }
         ////////////////////////////////
+        ///
+#endif
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

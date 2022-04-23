@@ -25,7 +25,7 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectsOfType<SpawnWave>().Length == 0)
+        if (FindObjectsOfType<SpawnWave>().Length == 0 && !(FindObjectOfType<PlayerController>().isDead))
         {
             if (waveCount == 5)
             {

@@ -16,35 +16,38 @@ public class PlayerController : MonoBehaviour
     private float healthBarInitialSize;
     public GameObject HealthBar;
 
-    private float startTime;
-    private float currentTime;
-    private float shotDelay = 0.5f;
-
     private int horBound = 31;
     private int verBound = 16;
 
-    Camera camera;
+    public Weapon weapon;
+
+    public bool isDead = false;
     Vector3 touchPos;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        startTime = Time.fixedTime;
+        ResetPlayer();
+        Debug.Log(healthBarInitialSize);       
+    }
+
+    public void ResetPlayer()
+    {
+        isDead = false;
+        transform.position = new Vector2(0, 0);
         healthPoints = maxHealth;
         healthBarInitialSize = HealthBar.transform.localScale.x;
-        Debug.Log(healthBarInitialSize);
-        camera = Camera.main;
-        
+        HealthBar.GetComponent<Slider>().value = 1;
+        weapon.AssembleWeapon();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime = Time.fixedTime;
+        
 
-        /////////////////////////////////
-        /// if space pressed spawn bullet every shotDelay seconds
+
 #if UNITY_ANDROID
         if (Input.touchCount >= 1)
         {
@@ -58,59 +61,61 @@ public class PlayerController : MonoBehaviour
 
         if(
 #else
+        /////////////////////////////////
+        /// if space pressed spawn bullet every shotDelay seconds
         if (Input.GetKey(KeyCode.Space) &&
 #endif
-         (currentTime - startTime) >= shotDelay)
+        
+         !isDead)
         {
-                Instantiate(bullet, this.transform.position, bullet.transform.rotation);
-
-                startTime = currentTime;
+            weapon.MakeShot();    
         }
 #if UNITY_ANDROID
         }
 #endif
     }
 
+    
+
     void FixedUpdate()
     {
 #if !UNITY_ANDROID
-        ////////////////////////////////
-        //make player move left or right on pressing a/d or left right arrow
-        if (transform.position.x <= horBound && transform.position.x >= -horBound)
+        if (!isDead)
         {
-            
-
-            
-            horizontalInput = Input.GetAxis("Horizontal");
-            transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
-
-        }
-        else
-        {
-            int retPos = horBound;
-            if (transform.position.x < 0)
+            ////////////////////////////////
+            //make player move left or right on pressing a/d or left right arrow
+            if (transform.position.x <= horBound && transform.position.x >= -horBound)
             {
-                retPos *= -1;
+                horizontalInput = Input.GetAxis("Horizontal");
+                transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
             }
-            transform.position = new Vector2(retPos, this.transform.position.y);
-        }
-        ////////////////////////////////
-
-        ////////////////////////////////
-        //make player move up or down on pressing w/s or up down arrow
-        if (transform.position.y <= verBound && transform.position.y >= -verBound)
-        {
-            verticalInput = Input.GetAxis("Vertical");
-            transform.Translate(Vector2.up * Time.deltaTime * verticalInput * speed);
-        }
-        else
-        {
-            int retPos = verBound;
-            if (transform.position.y < 0)
+            else
             {
-                retPos *= -1;
+                int retPos = horBound;
+                if (transform.position.x < 0)
+                {
+                    retPos *= -1;
+                }
+                transform.position = new Vector2(retPos, this.transform.position.y);
             }
-            transform.position = new Vector2(this.transform.position.x, retPos);
+            ////////////////////////////////
+
+            ////////////////////////////////
+            //make player move up or down on pressing w/s or up down arrow
+            if (transform.position.y <= verBound && transform.position.y >= -verBound)
+            {
+                verticalInput = Input.GetAxis("Vertical");
+                transform.Translate(Vector2.up * Time.deltaTime * verticalInput * speed);
+            }
+            else
+            {
+                int retPos = verBound;
+                if (transform.position.y < 0)
+                {
+                    retPos *= -1;
+                }
+                transform.position = new Vector2(this.transform.position.x, retPos);
+            }
         }
         ////////////////////////////////
         ///
@@ -125,7 +130,9 @@ public class PlayerController : MonoBehaviour
 
         if (healthPoints == 0)
         {
-            SceneManager.LoadScene(0);
+            FindObjectOfType<DeathScreen>(true).gameObject.SetActive(true);
+            isDead = true;
+            //SceneManager.LoadScene(0);
         }
     }
 

@@ -18,6 +18,37 @@ public class MainManager : MonoBehaviour
     {
         public string Name = "";
         public int HighScore = 0;
+        public SerializableDictionary<string, bool> killedBosses = new SerializableDictionary<string, bool>();
+
+        public void confirmKill(string bossName)
+        {
+            if (!killedBosses.ContainsKey(bossName))
+            {
+                killedBosses.Add(bossName, false);
+            }
+        }
+
+        public void equipWeapon(string bossName)
+        {
+            killedBosses[bossName] = !killedBosses[bossName];
+        }
+
+        public bool isBossKilled(string bossName)
+        {
+            return killedBosses.ContainsKey(bossName);
+        }
+
+        public void DisableAllBarrels()
+        {
+            List<string> temp = new List<string>(killedBosses.Keys);
+            foreach(string key in temp)
+            {
+                if (key == "Hellicopter")
+                {
+                    killedBosses["Hellicopter"] = false; 
+                }
+            }
+        }
     }
 
     [System.Serializable]
@@ -42,6 +73,7 @@ public class MainManager : MonoBehaviour
         UL = new UsersList();
 
         Instance = this;
+        
         DontDestroyOnLoad(gameObject);
 
         LoadGame();
@@ -75,6 +107,7 @@ public class MainManager : MonoBehaviour
     public void SetCurrentUser(int user)
     {
         UL.currentUser = user;
+        
     }
 
     public UserData GetCurrentUser()

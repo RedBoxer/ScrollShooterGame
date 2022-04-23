@@ -132,6 +132,7 @@ public class Helicopter : Enemy
                 HealthBar.SetActive(false);
                 Destroy(this.gameObject);
                 FindObjectOfType<GameController>().AddScore(this.tag);
+                MainManager.Instance.GetCurrentUser().confirmKill("Hellicopter");
             }
 
             Destroy(other.gameObject);

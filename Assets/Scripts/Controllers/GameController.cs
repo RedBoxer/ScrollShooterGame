@@ -7,10 +7,14 @@ public class GameController : MonoBehaviour
 {
     private int score = 0;
     public Text ScoreDisplay;
+
+    private PlayerController player;
+    private SpawnController spawner;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = FindObjectOfType<PlayerController>();
+        spawner = FindObjectOfType<SpawnController>();
     }
 
     // Update is called once per frame
@@ -39,8 +43,21 @@ public class GameController : MonoBehaviour
         ScoreDisplay.text = "" + score;
     }
 
+    public void ResetGame()
+    {
+        score = 0;
+        UpdateScore();
+        player.ResetPlayer();  
+        spawner.waveCount = 0;
+        foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+        {
+            Destroy(enemy.gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
         MainManager.Instance.SetCurrentUserScore(score);
+        MainManager.Instance.SaveGame();
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - Boss
   - PlayerBullet
   - BossHealth
+  - Hellicopter
+  - Standart
   layers:
   - Default
   - TransparentFX

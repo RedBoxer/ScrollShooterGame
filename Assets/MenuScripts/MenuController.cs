@@ -42,18 +42,9 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartNew()
     {
-        //UserSelection userSelection = FindObjectOfType<UserSelection>();
-        //userSelection.LoadUsersToSelection();
         FindObjectOfType<UserSelection>(true).gameObject.SetActive(true);
-        //SceneManager.LoadScene(1);
     }
 
     public void Exit()

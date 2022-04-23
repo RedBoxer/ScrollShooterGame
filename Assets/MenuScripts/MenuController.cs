@@ -31,6 +31,10 @@ public class MenuController : MonoBehaviour
 
             username.text = MainManager.Instance.GetCurrentUserName();
             score.text = "High Score: " + MainManager.Instance.GetCurrentUserScore();
+
+            string code = CodeTool.Instance.UserDataToCode(MainManager.Instance.GetCurrentUser());
+            Debug.Log(code);
+            CodeTool.Instance.CodeToUserData(code);
         }
         else
         {

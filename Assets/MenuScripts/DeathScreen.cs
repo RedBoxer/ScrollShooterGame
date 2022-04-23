@@ -9,6 +9,10 @@ public class DeathScreen : MonoBehaviour
     public Button[] weapons;
 
     private MainManager.UserData currentUser;
+
+    public GameObject QrCodeScreen;
+    public Image QrCode;
+    public Text Code;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,5 +57,16 @@ public class DeathScreen : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         MainManager.Instance.SaveGame();
+    }
+
+    public void onQRCodePressed()
+    {
+        Code.text = CodeTool.Instance.UserDataToCode(MainManager.Instance.GetCurrentUser());
+        QrCode.material.mainTexture = CodeTool.Instance.CreateQRCode(MainManager.Instance.GetCurrentUser());
+        QrCodeScreen.SetActive(true);
+    }
+    public void OnBackPressed()
+    {
+        QrCodeScreen.SetActive(false);
     }
 }

@@ -2,6 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Bullet
+    - CodeTool
+    - DeathScreen
     - DestroyOutOfBounds
     - Enemy
     - EnemyBullet
@@ -18,6 +20,7 @@ ScriptsOnlyBuild:
     - SpawnWaveRain
     - UserCreation
     - UserSelection
+    - Weapon
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -69,29 +72,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1454}
     - Class: 114
-      Script: {instanceID: 2252}
+      Script: {instanceID: 2254}
     - Class: 114
-      Script: {instanceID: 2428}
+      Script: {instanceID: 2430}
     - Class: 114
-      Script: {instanceID: 2614}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2684}
+      Script: {instanceID: 2688}
     - Class: 114
-      Script: {instanceID: 2856}
+      Script: {instanceID: 2860}
     - Class: 114
-      Script: {instanceID: 3096}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3156}
+      Script: {instanceID: 3160}
     - Class: 114
-      Script: {instanceID: 3298}
+      Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3470}
+      Script: {instanceID: 3474}
     - Class: 114
-      Script: {instanceID: 5162}
+      Script: {instanceID: 5168}
     - Class: 114
-      Script: {instanceID: 5564}
+      Script: {instanceID: 5570}
+    - Class: 114
+      Script: {instanceID: 17534}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -132,43 +137,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1454}
     - Class: 114
-      Script: {instanceID: 1718}
+      Script: {instanceID: 1476}
     - Class: 114
-      Script: {instanceID: 2252}
+      Script: {instanceID: 1720}
+    - Class: 114
+      Script: {instanceID: 2254}
     - Class: 114
       Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2856}
+      Script: {instanceID: 2688}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2860}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 2970}
     - Class: 114
-      Script: {instanceID: 3096}
+      Script: {instanceID: 3098}
     - Class: 114
-      Script: {instanceID: 3126}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3246}
+      Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3486}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3594}
+      Script: {instanceID: 3474}
     - Class: 114
-      Script: {instanceID: 3596}
+      Script: {instanceID: 3490}
     - Class: 114
-      Script: {instanceID: 3914}
+      Script: {instanceID: 3600}
     - Class: 114
-      Script: {instanceID: 4654}
+      Script: {instanceID: 3602}
     - Class: 114
-      Script: {instanceID: 4672}
+      Script: {instanceID: 3920}
     - Class: 114
-      Script: {instanceID: 4872}
+      Script: {instanceID: 4660}
     - Class: 114
-      Script: {instanceID: 5454}
+      Script: {instanceID: 4678}
     - Class: 114
-      Script: {instanceID: 5774}
+      Script: {instanceID: 4878}
+    - Class: 114
+      Script: {instanceID: 5460}
+    - Class: 114
+      Script: {instanceID: 5780}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -194,6 +205,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: f319770a286e16937472c41a6fe28d4a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Weapon
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -310,10 +327,16 @@ ScriptsOnlyBuild:
     className: IKManager2D
   - hash:
       serializedVersion: 2
-      Hash: 0539a7079346f554e71d84cd3bb42fd4
+      Hash: ccabeb46b7509ef9156da2d08d981c4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainManager
+  - hash:
+      serializedVersion: 2
+      Hash: df25c182d1207dd40840dd3b77c2f8a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeathScreen
   - hash:
       serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
@@ -490,7 +513,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 88ee4cc2c9d24e692b14fa154dedcfe4
+      Hash: af161de376ae1335b219abf9dd0431a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -730,7 +753,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 1ae228da867e1e756a124a370c8c114e
+      Hash: e78a08316afd418e1c95c489de5ae83c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UserCreation
@@ -800,6 +823,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 8a9c6afc3bf852a580ce3281c4146083
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CodeTool
   platform: 13
   scenePathNames:
   - Assets/Scenes/MenuScene.unity

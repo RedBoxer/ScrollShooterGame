@@ -8,6 +8,8 @@ public class UserCreation : MonoBehaviour
     public InputField nameInput;
     public InputField codeInput;
 
+    public Button ScanButton;
+
     public GameObject ScanScreen;
 
     public Text scanResult;
@@ -24,9 +26,17 @@ public class UserCreation : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+#if UNITY_ANDROID
+        codeInput.gameObject.SetActive(false);
+#else
+        ScanButton.gameObject.SetActive(false);
+#endif
+    }
+
     public void onSaveClick()
     {
-        codeInput.text = scanResult.text;
         if (codeInput.text != "")
         {  
             savedUser = CodeTool.Instance.CodeToUserData(codeInput.text);
@@ -37,7 +47,7 @@ public class UserCreation : MonoBehaviour
         {
             MainManager.Instance.users[MainManager.Instance.UL.currentUser].Name = nameInput.text;
         }
-        //FindObjectOfType<UserSelection>().LoadUsersToSelection();
+     
         FindObjectOfType<UserSelection>(true).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

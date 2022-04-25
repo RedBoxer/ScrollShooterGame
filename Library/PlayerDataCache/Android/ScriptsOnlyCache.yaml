@@ -70,33 +70,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1454}
+      Script: {instanceID: 1456}
     - Class: 114
-      Script: {instanceID: 2254}
+      Script: {instanceID: 2256}
     - Class: 114
-      Script: {instanceID: 2430}
+      Script: {instanceID: 2432}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 2688}
+      Script: {instanceID: 2666}
     - Class: 114
-      Script: {instanceID: 2860}
+      Script: {instanceID: 2692}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 2864}
     - Class: 114
-      Script: {instanceID: 3160}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3302}
+      Script: {instanceID: 3164}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3306}
     - Class: 114
-      Script: {instanceID: 3474}
+      Script: {instanceID: 3360}
     - Class: 114
-      Script: {instanceID: 5168}
+      Script: {instanceID: 3480}
     - Class: 114
-      Script: {instanceID: 5570}
+      Script: {instanceID: 5174}
     - Class: 114
-      Script: {instanceID: 17534}
+      Script: {instanceID: 5576}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -135,51 +135,51 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1454}
+      Script: {instanceID: 1456}
     - Class: 114
-      Script: {instanceID: 1476}
+      Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1720}
+      Script: {instanceID: 1722}
     - Class: 114
-      Script: {instanceID: 2254}
-    - Class: 114
-      Script: {instanceID: 2684}
+      Script: {instanceID: 2256}
     - Class: 114
       Script: {instanceID: 2688}
     - Class: 114
-      Script: {instanceID: 2860}
+      Script: {instanceID: 2692}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2864}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3130}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3474}
+      Script: {instanceID: 3360}
     - Class: 114
-      Script: {instanceID: 3490}
+      Script: {instanceID: 3480}
     - Class: 114
-      Script: {instanceID: 3600}
+      Script: {instanceID: 3496}
     - Class: 114
-      Script: {instanceID: 3602}
+      Script: {instanceID: 3606}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 4660}
+      Script: {instanceID: 3926}
     - Class: 114
-      Script: {instanceID: 4678}
+      Script: {instanceID: 4666}
     - Class: 114
-      Script: {instanceID: 4878}
+      Script: {instanceID: 4684}
     - Class: 114
-      Script: {instanceID: 5460}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5466}
+    - Class: 114
+      Script: {instanceID: 5786}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -331,6 +331,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainManager
+  - hash:
+      serializedVersion: 2
+      Hash: 8a9c6afc3bf852a580ce3281c4146083
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CodeTool
   - hash:
       serializedVersion: 2
       Hash: df25c182d1207dd40840dd3b77c2f8a4
@@ -753,7 +759,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: e78a08316afd418e1c95c489de5ae83c
+      Hash: d7cf9242f4daa3e954ec8303a5a058d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UserCreation
@@ -823,12 +829,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 8a9c6afc3bf852a580ce3281c4146083
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CodeTool
   platform: 13
   scenePathNames:
   - Assets/Scenes/MenuScene.unity

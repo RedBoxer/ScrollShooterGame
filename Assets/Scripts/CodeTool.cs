@@ -141,8 +141,9 @@ public class CodeTool : MonoBehaviour
     {
         screenRect = camHolder.GetComponent<RectTransform>().rect;
         camTexture = new WebCamTexture();
-        camTexture.requestedHeight = Screen.height;
-        camTexture.requestedWidth = Screen.width;
+        camTexture.requestedHeight = (int)screenRect.height;
+        camTexture.requestedWidth = (int)screenRect.width;
+        
         if (camTexture != null)
         {
             CameraOn = true;
@@ -157,7 +158,7 @@ public class CodeTool : MonoBehaviour
         if (CameraOn)
         {
             // drawing the camera on screen
-            GUI.DrawTexture(screenRect, camTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(new Vector2(0,0),screenRect.size), camTexture, ScaleMode.ScaleToFit);
             // do the reading — you might want to attempt to read less often than you draw on the screen for performance sake
             try
             {
@@ -172,6 +173,12 @@ public class CodeTool : MonoBehaviour
                 }
             }
             catch (Exception ex) { resultDisplay.text = ex.Message; }
+
+            if (!camHolder.active)
+            {
+                CameraOn = false;
+                camTexture.Stop();
+            }
         }
     }
 

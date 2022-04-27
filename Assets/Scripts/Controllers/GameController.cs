@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
         UpdateScore();
         player.ResetPlayer();  
         spawner.waveCount = 0;
+        spawner.BossHealth.SetActive(false);
         foreach (Enemy enemy in FindObjectsOfType<Enemy>())
         {
             Destroy(enemy.gameObject);

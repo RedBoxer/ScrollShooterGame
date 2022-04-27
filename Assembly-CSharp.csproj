@@ -70,13 +70,17 @@
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\SpawnWave.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Car.cs" />
+    <Compile Include="Assets\Scripts\SpawnWaves\CarSpawn.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\SpawnWaveRain.cs" />
     <Compile Include="Assets\Scripts\Behaviors\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\HelicopterSpawn.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\BaseBoss.cs" />
     <Compile Include="Assets\MenuScripts\UserCreation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Enemy.cs" />
     <Compile Include="Assets\MenuScripts\UserSelection.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Helicopter.cs" />
+    <Compile Include="Assets\Scripts\CarCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\zxing.unity.dll" />

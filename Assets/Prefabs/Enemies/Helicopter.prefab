@@ -196,11 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  HealthBar: {fileID: 7223817256417547179, guid: 130c2054cecefcc46b237617267e6c0b, type: 3}
+  Bullet: {fileID: 6130333175518864105, guid: 29ae7974703b0f24a8a5c47a1f39aacc, type: 3}
+  bossName: 
   length: 4.5
   TurretLeft: {fileID: 3153937021398348167}
   TurretRight: {fileID: 2072678233126841519}
-  Bullet: {fileID: 6130333175518864105, guid: 29ae7974703b0f24a8a5c47a1f39aacc, type: 3}
-  HealthBar: {fileID: 7223817256417547179, guid: 130c2054cecefcc46b237617267e6c0b, type: 3}
 --- !u!50 &-4941640830639230528
 Rigidbody2D:
   serializedVersion: 4

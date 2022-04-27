@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Helicopter : Enemy
-{
-    private float centerAngle = 90f;
+
+public class Helicopter : BaseBoss
+{ 
     private float mainLength = 3f;
 
     private int step = 0;
@@ -13,22 +12,13 @@ public class Helicopter : Enemy
     public float length = 1;
 
     public GameObject TurretLeft, TurretRight;
-    public GameObject Bullet;
-    public GameObject HealthBar;
-
-    protected float startTime;
-    protected float currentTime;
-
-    private int health = 10;
-    private int maxHealth = 10;
 
     private bool left = true;
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.fixedTime;
-        HealthBar = GameObject.FindGameObjectWithTag("BossHealth");
-        HealthBar.GetComponent<Slider>().value = 1;
+        base.Start();
+        bossName = "Hellicopter";
     }
 
     // Update is called once per frame
@@ -115,27 +105,4 @@ public class Helicopter : Enemy
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            health -= 1;
-
-            float percentOfLoss = (float)health / maxHealth;
-
-            Debug.Log(percentOfLoss);
-
-            HealthBar.GetComponent<Slider>().value = percentOfLoss;
-
-            if (health == 0)
-            {
-                HealthBar.SetActive(false);
-                Destroy(this.gameObject);
-                FindObjectOfType<GameController>().AddScore(this.tag);
-                MainManager.Instance.GetCurrentUser().confirmKill("Hellicopter");
-            }
-
-            Destroy(other.gameObject);
-        }
-    }
 }

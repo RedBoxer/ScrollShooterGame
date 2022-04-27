@@ -36,15 +36,11 @@ public class DeathScreen : MonoBehaviour
     public void OnWeaponPressed(GameObject button)
     {
         currentUser = MainManager.Instance.GetCurrentUser();
+        currentUser.DisableAllBarrels();
         if (button.tag != "Standart")
         {
             currentUser.equipWeapon(button.tag);
-            Debug.Log(button.tag + "weapon equiped");
-        }
-        else
-        {
-            currentUser.DisableAllBarrels();
-            Debug.Log("Standart equiped");
+            Debug.Log(button.tag + " weapon equiped");
         }
     }
     public void OnPlayPressed()

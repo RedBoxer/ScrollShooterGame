@@ -10,6 +10,7 @@ TagManager:
   - BossHealth
   - Hellicopter
   - Standart
+  - Car
   layers:
   - Default
   - TransparentFX

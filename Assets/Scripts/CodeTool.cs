@@ -49,6 +49,12 @@ public class CodeTool : MonoBehaviour
                 killedBosses[0] = true;
                 equipedWeapons[0] = pair.Value;
             }
+
+            if (pair.Key == "Car")
+            {
+                killedBosses[1] = true;
+                equipedWeapons[1] = pair.Value;
+            }
         }
 
         byte[] data = new byte[2];
@@ -75,16 +81,22 @@ public class CodeTool : MonoBehaviour
         int blockNum = 1;
         foreach (string hex in codeBlocks[1].Split('-'))
         {
-            long temp = long.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+            int temp = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
             byte[] bytes = System.BitConverter.GetBytes(temp);
+            BitArray bits = new BitArray(bytes);
             
             if (blockNum == 1)
             {
-                if (bytes[0] == 1)
+                if (bits[0])
                 {
                     result.confirmKill("Hellicopter");
                 }
-                blockNum++;
+
+                if (bits[1])
+                {
+                    result.confirmKill("Car");
+                }
+                //blockNum++;
             }
             else 
             { 
@@ -94,16 +106,22 @@ public class CodeTool : MonoBehaviour
         blockNum = 1;
         foreach (string hex in codeBlocks[2].Split('-'))
         {
-            long temp = long.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+            int temp = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
             byte[] bytes = System.BitConverter.GetBytes(temp);
+            BitArray bits = new BitArray(bytes);
 
             if (blockNum == 1)
             {
-                if (bytes[0] == 1)
+                if (bits[0])
                 {
                     result.equipWeapon("Hellicopter");
                 }
-                blockNum++;
+
+                if (bits[1])
+                {
+                    result.equipWeapon("Car");
+                }
+                //blockNum++;
             }
             else
             {
@@ -152,7 +170,6 @@ public class CodeTool : MonoBehaviour
 
     }
 
-    int i = 0;
     void OnGUI()
     {
         if (CameraOn)

@@ -11,8 +11,6 @@ public class MainManager : MonoBehaviour
 
     public UserData[] users;
 
-    int HighScore = 0;
-
     [System.Serializable]
     public class UserData
     {
@@ -41,11 +39,16 @@ public class MainManager : MonoBehaviour
         public void DisableAllBarrels()
         {
             List<string> temp = new List<string>(killedBosses.Keys);
-            foreach(string key in temp)
+            foreach (string key in temp)
             {
                 if (key == "Hellicopter")
                 {
-                    killedBosses["Hellicopter"] = false; 
+                    killedBosses["Hellicopter"] = false;
+                }
+
+                if (key == "Car")
+                {
+                    killedBosses["Car"] = false;
                 }
             }
         }

@@ -57,9 +57,20 @@ public class Weapon : MonoBehaviour
                     }
                     break;
                 case "Hellicopter":
-                    Instantiate(bullet, new Vector2(currentPosition.x - (TwinOffset * side), currentPosition.y) , bullet.transform.rotation);
+                    Instantiate(bullet, new Vector2(currentPosition.x - (TwinOffset * side), currentPosition.y), bullet.transform.rotation);
                     side *= -1;
                     shotComplete = true;
+                    break;
+                case "Car":
+                    if ((currentTime - startTime) >= shotDelay * 2)
+                    {
+                        Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + 30)));
+                        Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + 15)));
+                        Instantiate(bullet, transform.position, transform.rotation);
+                        Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z - 15)));
+                        Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z - 30)));
+                        shotComplete = true;
+                    }
                     break;
             }
 

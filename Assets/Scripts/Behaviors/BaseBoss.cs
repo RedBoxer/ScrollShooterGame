@@ -18,7 +18,6 @@ public class BaseBoss : Enemy
     // Start is called before the first frame update
     protected void Start()
     {
-        
         health = maxHealth;
         startTime = Time.fixedTime;
         HealthBar = GameObject.FindGameObjectWithTag("BossHealth");
@@ -31,7 +30,6 @@ public class BaseBoss : Enemy
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             health -= 1;
-            Debug.Log("Detected");
 
             float percentOfLoss = (float)health / maxHealth;
 

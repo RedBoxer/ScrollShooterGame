@@ -38,7 +38,6 @@ public class CodeTool : MonoBehaviour
         result += user.HighScore.ToString("X") + "|";
 
         //killedBosses conversion
-        // Hellicopter boss: 1
         BitArray killedBosses = new BitArray(16, false);
         BitArray equipedWeapons = new BitArray(16, false);
 
@@ -54,6 +53,12 @@ public class CodeTool : MonoBehaviour
             {
                 killedBosses[1] = true;
                 equipedWeapons[1] = pair.Value;
+            }
+
+            if (pair.Key == "Tank")
+            {
+                killedBosses[2] = true;
+                equipedWeapons[2] = pair.Value;
             }
         }
 
@@ -96,6 +101,11 @@ public class CodeTool : MonoBehaviour
                 {
                     result.confirmKill("Car");
                 }
+
+                if (bits[2])
+                {
+                    result.confirmKill("Tank");
+                }
                 //blockNum++;
             }
             else 
@@ -120,6 +130,11 @@ public class CodeTool : MonoBehaviour
                 if (bits[1])
                 {
                     result.equipWeapon("Car");
+                }
+
+                if (bits[2])
+                {
+                    result.equipWeapon("Tank");
                 }
                 //blockNum++;
             }

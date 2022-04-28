@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarCollision : MonoBehaviour
 {
-    public Car parrent;
+    public BaseBoss parrent;
     // Start is called before the first frame update
     void Start()
     {

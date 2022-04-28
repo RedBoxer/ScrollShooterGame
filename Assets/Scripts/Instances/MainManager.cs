@@ -52,6 +52,18 @@ public class MainManager : MonoBehaviour
                 }
             }
         }
+
+        public void DisableAllBullets()
+        {
+            List<string> temp = new List<string>(killedBosses.Keys);
+            foreach (string key in temp)
+            {
+                if (key == "Tank")
+                {
+                    killedBosses["Tank"] = false;
+                }
+            }
+        }
     }
 
     [System.Serializable]

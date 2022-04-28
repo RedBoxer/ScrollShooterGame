@@ -7,12 +7,13 @@ public class Car : BaseBoss
     public GameObject turret;
     public GameObject carBody;
     public GameObject[] stops;
-    int rounds = 0;
-    float checkTime = 2.5f;
 
-    private int target = 1;
+    protected int rounds = 0;
+    protected float checkTime = 2.5f;
 
-    private GameObject Player;
+    protected int target = 1;
+
+    protected GameObject Player;
 
     // Start is called before the first frame update
     void Start()
@@ -32,24 +33,8 @@ public class Car : BaseBoss
             Quaternion rotation = Quaternion.LookRotation(Player.transform.position - turret.transform.position, 
                 transform.TransformDirection(Vector3.forward));
             turret.transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-            
-            if ((currentTime - startTime) >= checkTime)
-            {
-                Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z + 30)));
-                Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z + 15)));
-                Instantiate(Bullet, turret.transform.position, turret.transform.rotation);
-                Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z - 15)));
-                Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z - 30)));
-                checkTime += 0.5f;
-                rounds++;
-            }
 
-            if (rounds == 3)
-            {
-                rounds = 0;
-                checkTime = 4f;
-                startTime = Time.fixedTime;
-            }  
+            MakeShot();
         }
 
         if ((Vector2)carBody.transform.position == (Vector2)stops[target].transform.position)
@@ -59,9 +44,30 @@ public class Car : BaseBoss
             {
                 target = 0;
             }
-            carBody.transform.Rotate(Vector3.forward, 90);
+            //carBody.transform.Rotate(Vector3.forward, 90);
         }
         
         carBody.transform.position = Vector2.MoveTowards(carBody.transform.position, stops[target].transform.position, speed * Time.deltaTime);
+    }
+
+    protected virtual void MakeShot()
+    {
+        if ((currentTime - startTime) >= checkTime)
+        {
+            Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z + 30)));
+            Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z + 15)));
+            Instantiate(Bullet, turret.transform.position, turret.transform.rotation);
+            Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z - 15)));
+            Instantiate(Bullet, turret.transform.position, Quaternion.Euler(new Vector3(0, 0, turret.transform.rotation.eulerAngles.z - 30)));
+            checkTime += 0.5f;
+            rounds++;
+        }
+
+        if (rounds == 3)
+        {
+            rounds = 0;
+            checkTime = 2.5f;
+            startTime = Time.fixedTime;
+        }
     }
 }

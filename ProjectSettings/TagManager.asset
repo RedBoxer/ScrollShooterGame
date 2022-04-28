@@ -11,6 +11,8 @@ TagManager:
   - Hellicopter
   - Standart
   - Car
+  - Tank
+  - StandartB
   layers:
   - Default
   - TransparentFX

@@ -81,6 +81,7 @@
     <Compile Include="Assets\MenuScripts\UserSelection.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Helicopter.cs" />
     <Compile Include="Assets\Scripts\CarCollision.cs" />
+    <Compile Include="Assets\Scripts\Tank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\zxing.unity.dll" />

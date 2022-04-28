@@ -36,12 +36,27 @@ public class DeathScreen : MonoBehaviour
     public void OnWeaponPressed(GameObject button)
     {
         currentUser = MainManager.Instance.GetCurrentUser();
-        currentUser.DisableAllBarrels();
-        if (button.tag != "Standart")
+        if (button.tag == "Hellicopter" || button.tag == "Car" || button.tag == "Standart")
         {
-            currentUser.equipWeapon(button.tag);
-            Debug.Log(button.tag + " weapon equiped");
+            currentUser.DisableAllBarrels();
+
+            if (button.tag != "Standart")
+            {
+                currentUser.equipWeapon(button.tag);
+                Debug.Log(button.tag + " weapon equiped");
+            }
+        } 
+        else if (button.tag == "StandartB" || button.tag == "Tank")
+        {
+            currentUser.DisableAllBullets();
+
+            if (button.tag != "StandartB")
+            {
+                currentUser.equipWeapon(button.tag);
+                Debug.Log(button.tag + " weapon equiped");
+            }
         }
+        
     }
     public void OnPlayPressed()
     {

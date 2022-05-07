@@ -13,6 +13,8 @@ TagManager:
   - Car
   - Tank
   - StandartB
+  - StandartC
+  - AntiAir
   layers:
   - Default
   - TransparentFX

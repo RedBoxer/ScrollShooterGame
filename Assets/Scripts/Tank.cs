@@ -14,18 +14,15 @@ public class Tank : Car
         bossName = "Tank";
         Player = GameObject.Find("Player");
         checkTime = 2.75f;
-
     }
 
     protected override void MakeShot()
-    {
-        
+    {   
         if ((currentTime - startTime) >= checkTime)
         {
             Instantiate(Bullet, turret.transform.position, turret.transform.rotation);
             checkTime += 0.5f;
-        }
-        
+        }   
     }
 
 

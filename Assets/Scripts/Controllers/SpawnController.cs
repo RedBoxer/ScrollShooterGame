@@ -13,6 +13,8 @@ public class SpawnController : MonoBehaviour
 
     public float spawnDelay = 6f;
 
+    public bool DebugStop = false;
+
     //starts with 1 because first wave is spawned in Start()
     public int waveCount = 1;
     // Start is called before the first frame update
@@ -25,7 +27,7 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectsOfType<SpawnWave>().Length == 0 && !(FindObjectOfType<PlayerController>().isDead))
+        if (FindObjectsOfType<SpawnWave>().Length == 0 && !(FindObjectOfType<PlayerController>().isDead) && !DebugStop)
         {
             if (waveCount == 5)
             {

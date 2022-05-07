@@ -56,7 +56,17 @@ public class DeathScreen : MonoBehaviour
                 Debug.Log(button.tag + " weapon equiped");
             }
         }
-        
+        else if (button.tag == "StandartC" || button.tag == "AntiAir")
+        {
+            currentUser.DisableAllCases();
+
+            if (button.tag != "StandartC")
+            {
+                currentUser.equipWeapon(button.tag);
+                Debug.Log(button.tag + " weapon equiped");
+            }
+        }
+
     }
     public void OnPlayPressed()
     {

@@ -6,9 +6,13 @@ public class Weapon : MonoBehaviour
 {
     private MainManager.UserData currentUser;
     public Bullet[] bullets;
+    public Case[] cases;
 
     private string currentBarrel = "Standart";
     private int currentBullet = 0;
+    private int currentCase = 0;
+
+    private Bullet cB;
 
     private float startTime;
     private float currentTime;
@@ -34,23 +38,35 @@ public class Weapon : MonoBehaviour
         currentUser = MainManager.Instance.GetCurrentUser();
         currentBarrel = "Standart";
         currentBullet = 0;
-        foreach(KeyValuePair<string, bool> pair in currentUser.killedBosses)
+        foreach (KeyValuePair<string, bool> pair in currentUser.killedBosses)
         {
-            if ( (pair.Key == "Car" || pair.Key == "Hellicopter") && pair.Value)
+            if ((pair.Key == "Car" || pair.Key == "Hellicopter") && pair.Value)
             {
                 currentBarrel = pair.Key;
             }
 
-            if ( (pair.Key == "Tank") && pair.Value)
+            if ((pair.Key == "Tank") && pair.Value)
             {
                 switch (pair.Key)
                 {
                     case "Tank":
                         currentBullet = 1;
                         break;
-                }   
+                }
+            }
+
+            if ((pair.Key == "AntiAir") && pair.Value)
+            {
+                switch (pair.Key)
+                {
+                    case "AntiAir":
+                        currentCase = 1;
+                        break;
+                }
             }
         }
+
+        bullets[currentBullet].changeCase(currentCase);
     }
 
     public void MakeShot()

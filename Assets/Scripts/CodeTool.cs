@@ -60,6 +60,12 @@ public class CodeTool : MonoBehaviour
                 killedBosses[2] = true;
                 equipedWeapons[2] = pair.Value;
             }
+
+            if (pair.Key == "AntiAir")
+            {
+                killedBosses[3] = true;
+                equipedWeapons[3] = pair.Value;
+            }
         }
 
         byte[] data = new byte[2];
@@ -106,6 +112,11 @@ public class CodeTool : MonoBehaviour
                 {
                     result.confirmKill("Tank");
                 }
+
+                if (bits[3])
+                {
+                    result.confirmKill("AntiAir");
+                }
                 //blockNum++;
             }
             else 
@@ -135,6 +146,11 @@ public class CodeTool : MonoBehaviour
                 if (bits[2])
                 {
                     result.equipWeapon("Tank");
+                }
+
+                if (bits[3])
+                {
+                    result.equipWeapon("AntiAir");
                 }
                 //blockNum++;
             }

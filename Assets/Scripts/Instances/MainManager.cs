@@ -64,6 +64,18 @@ public class MainManager : MonoBehaviour
                 }
             }
         }
+
+        public void DisableAllCases()
+        {
+            List<string> temp = new List<string>(killedBosses.Keys);
+            foreach (string key in temp)
+            {
+                if (key == "AntiAir")
+                {
+                    killedBosses["AntiAir"] = false;
+                }
+            }
+        }
     }
 
     [System.Serializable]

@@ -24,7 +24,7 @@ public class BaseBoss : Enemy
         HealthBar.GetComponent<Slider>().value = 1;
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D other)
+    new public virtual void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other.gameObject.CompareTag("PlayerBullet"))
@@ -45,7 +45,7 @@ public class BaseBoss : Enemy
                 MainManager.Instance.GetCurrentUser().confirmKill(bossName);
             }
 
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 }

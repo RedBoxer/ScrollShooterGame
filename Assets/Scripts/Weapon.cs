@@ -6,13 +6,10 @@ public class Weapon : MonoBehaviour
 {
     private MainManager.UserData currentUser;
     public Bullet[] bullets;
-    public Case[] cases;
 
     private string currentBarrel = "Standart";
     private int currentBullet = 0;
     private int currentCase = 0;
-
-    private Bullet cB;
 
     private float startTime;
     private float currentTime;
@@ -40,17 +37,23 @@ public class Weapon : MonoBehaviour
         currentBullet = 0;
         foreach (KeyValuePair<string, bool> pair in currentUser.killedBosses)
         {
-            if ((pair.Key == "Car" || pair.Key == "Hellicopter") && pair.Value)
+            if ((pair.Key == "Car" || pair.Key == "Hellicopter" || pair.Key == "Saucer") && pair.Value)
             {
                 currentBarrel = pair.Key;
             }
 
-            if ((pair.Key == "Tank") && pair.Value)
+            if ((pair.Key == "Tank" || pair.Key == "Jet" || pair.Key == "Train") && pair.Value)
             {
                 switch (pair.Key)
                 {
                     case "Tank":
                         currentBullet = 1;
+                        break;
+                    case "Jet":
+                        currentBullet = 2;
+                        break;
+                    case "Train":
+                        currentBullet = 3;
                         break;
                 }
             }
@@ -98,6 +101,16 @@ public class Weapon : MonoBehaviour
                         Instantiate(bullets[currentBullet], transform.position, transform.rotation);
                         Instantiate(bullets[currentBullet], transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z - 15)));
                         Instantiate(bullets[currentBullet], transform.position, Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z - 30)));
+                        shotComplete = true;
+                    }
+                    break;
+                case "Saucer":
+                    if ((currentTime - startTime) >= shotDelay * 2)
+                    {
+                        Instantiate(bullets[currentBullet], new Vector2(transform.position.x - 1, transform.position.y - 1), transform.rotation);
+                        Instantiate(bullets[currentBullet], transform.position, transform.rotation);
+                        Instantiate(bullets[currentBullet], new Vector2(transform.position.x + 1, transform.position.y - 1), transform.rotation);
+
                         shotComplete = true;
                     }
                     break;

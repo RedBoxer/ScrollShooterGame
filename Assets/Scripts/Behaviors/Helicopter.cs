@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Helicopter : BaseBoss
 { 
-    private float mainLength = 3f;
+    protected float mainLength = 3f;
 
-    private int step = 0;
-    private int subStep = 0;
+    protected int step = 0;
+    protected int subStep = 0;
     public float length = 1;
 
     public GameObject TurretLeft, TurretRight;
 
-    private bool left = true;
+    protected bool left = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,21 +26,7 @@ public class Helicopter : BaseBoss
     {
         currentTime = Time.fixedTime;
 
-        if ((currentTime - startTime) >= 0.3)
-        {
-            if (left)
-            {
-                Instantiate(Bullet, TurretLeft.transform.position, TurretLeft.transform.rotation);
-            }
-            else
-            {
-                Instantiate(Bullet, TurretRight.transform.position, TurretRight.transform.rotation);
-            }
-
-            left = !left;
-
-            startTime = Time.fixedTime;
-        }
+        MakeShot();
 
         Vector2 currentMovement = new Vector2(0, 0);
         switch (step)
@@ -102,6 +88,25 @@ public class Helicopter : BaseBoss
         if (step == 14)
         {
             step = 0;
+        }
+    }
+
+    protected virtual void MakeShot()
+    {
+        if ((currentTime - startTime) >= 0.3)
+        {
+            if (left)
+            {
+                Instantiate(Bullet, TurretLeft.transform.position, TurretLeft.transform.rotation);
+            }
+            else
+            {
+                Instantiate(Bullet, TurretRight.transform.position, TurretRight.transform.rotation);
+            }
+
+            left = !left;
+
+            startTime = Time.fixedTime;
         }
     }
 

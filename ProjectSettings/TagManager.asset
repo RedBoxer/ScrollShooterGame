@@ -15,6 +15,9 @@ TagManager:
   - StandartB
   - StandartC
   - AntiAir
+  - Jet
+  - Train
+  - Saucer
   layers:
   - Default
   - TransparentFX

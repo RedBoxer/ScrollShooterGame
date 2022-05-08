@@ -66,6 +66,18 @@ public class CodeTool : MonoBehaviour
                 killedBosses[3] = true;
                 equipedWeapons[3] = pair.Value;
             }
+
+            if (pair.Key == "Jet")
+            {
+                killedBosses[4] = true;
+                equipedWeapons[4] = pair.Value;
+            }
+
+            if (pair.Key == "Train")
+            {
+                killedBosses[5] = true;
+                equipedWeapons[5] = pair.Value;
+            }
         }
 
         byte[] data = new byte[2];
@@ -117,6 +129,21 @@ public class CodeTool : MonoBehaviour
                 {
                     result.confirmKill("AntiAir");
                 }
+
+                if (bits[4])
+                {
+                    result.confirmKill("Jet");
+                }
+
+                if (bits[5])
+                {
+                    result.confirmKill("Train");
+                }
+
+                if (bits[6])
+                {
+                    result.confirmKill("Saucer");
+                }
                 //blockNum++;
             }
             else 
@@ -151,6 +178,21 @@ public class CodeTool : MonoBehaviour
                 if (bits[3])
                 {
                     result.equipWeapon("AntiAir");
+                }
+
+                if (bits[4])
+                {
+                    result.equipWeapon("Jet");
+                }
+
+                if (bits[5])
+                {
+                    result.equipWeapon("Train");
+                }
+
+                if (bits[6])
+                {
+                    result.equipWeapon("Saucer");
                 }
                 //blockNum++;
             }

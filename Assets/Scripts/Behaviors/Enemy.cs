@@ -17,13 +17,12 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector2.right * Time.deltaTime * speed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PlayerBullet"))
         {
             FindObjectOfType<GameController>().AddScore(this.tag);
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
         }  
     }
 }

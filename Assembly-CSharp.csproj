@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\SpawnWaves\BuildingSpawnWave.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\SpawnWave.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Car.cs" />
     <Compile Include="Assets\Scripts\AntiAir.cs" />
@@ -86,7 +87,10 @@
     <Compile Include="Assets\MenuScripts\UserSelection.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Helicopter.cs" />
     <Compile Include="Assets\Scripts\CarCollision.cs" />
-    <Compile Include="Assets\Scripts\SpawnWaves\BuildingSpawnWave.cs" />
+    <Compile Include="Assets\Scripts\Jet.cs" />
+    <Compile Include="Assets\Scripts\Wall.cs" />
+    <Compile Include="Assets\Scripts\Train.cs" />
+    <Compile Include="Assets\Scripts\Saucer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\zxing.unity.dll" />

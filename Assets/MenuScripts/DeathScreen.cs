@@ -36,35 +36,46 @@ public class DeathScreen : MonoBehaviour
     public void OnWeaponPressed(GameObject button)
     {
         currentUser = MainManager.Instance.GetCurrentUser();
-        if (button.tag == "Hellicopter" || button.tag == "Car" || button.tag == "Standart")
+       
+        switch (button.tag)
         {
-            currentUser.DisableAllBarrels();
+            case "Hellicopter":
+            case "Car":
+            case "Standart":
+            case "Saucer":
+                currentUser.DisableAllBarrels();
 
-            if (button.tag != "Standart")
-            {
-                currentUser.equipWeapon(button.tag);
-                Debug.Log(button.tag + " weapon equiped");
-            }
-        } 
-        else if (button.tag == "StandartB" || button.tag == "Tank")
-        {
-            currentUser.DisableAllBullets();
+                if (button.tag != "Standart")
+                {
+                    currentUser.equipWeapon(button.tag);
+                    Debug.Log(button.tag + " weapon equiped");
+                }
 
-            if (button.tag != "StandartB")
-            {
-                currentUser.equipWeapon(button.tag);
-                Debug.Log(button.tag + " weapon equiped");
-            }
-        }
-        else if (button.tag == "StandartC" || button.tag == "AntiAir")
-        {
-            currentUser.DisableAllCases();
+                break;
+            case "StandartB":
+            case "Tank":
+            case "Jet":
+            case "Train":
+                currentUser.DisableAllBullets();
 
-            if (button.tag != "StandartC")
-            {
-                currentUser.equipWeapon(button.tag);
-                Debug.Log(button.tag + " weapon equiped");
-            }
+                if (button.tag != "StandartB")
+                {
+                    currentUser.equipWeapon(button.tag);
+                    Debug.Log(button.tag + " weapon equiped");
+                }
+
+                break;
+            case "Standartc":
+            case "AntiAir":
+                currentUser.DisableAllCases();
+
+                if (button.tag != "StandartC")
+                {
+                    currentUser.equipWeapon(button.tag);
+                    Debug.Log(button.tag + " weapon equiped");
+                }
+
+                break;
         }
 
     }

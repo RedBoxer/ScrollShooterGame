@@ -50,6 +50,11 @@ public class MainManager : MonoBehaviour
                 {
                     killedBosses["Car"] = false;
                 }
+
+                if (key == "Saucer")
+                {
+                    killedBosses["Saucer"] = false;
+                }
             }
         }
 
@@ -61,6 +66,16 @@ public class MainManager : MonoBehaviour
                 if (key == "Tank")
                 {
                     killedBosses["Tank"] = false;
+                }
+
+                if (key == "Jet")
+                {
+                    killedBosses["Jet"] = false;
+                }
+
+                if (key == "Train")
+                {
+                    killedBosses["Train"] = false;
                 }
             }
         }

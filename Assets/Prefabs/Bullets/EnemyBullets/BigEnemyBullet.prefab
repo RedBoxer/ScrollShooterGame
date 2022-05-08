@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  Cases:
+  - {fileID: 0}
+  piercing: 0
 --- !u!114 &8586208996672027637
 MonoBehaviour:
   m_ObjectHideFlags: 0

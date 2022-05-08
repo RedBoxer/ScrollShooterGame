@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 135
+  controlID: 110
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 109
+  controlID: 111
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 110
+  controlID: 112
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,7 +398,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: da71f5ffb6daf5ffae76feff4e7bfeffb625ffff542dffff0e33ffff9c35ffff6236ffffc036fffff438ffff5239ffffde3dffff1e3effff8c46ffffb247ffff0a59ffff9660ffff2c61ffff5666ffffa466ffffc069ffff9a6dffff786effffb86effff2e80ffff4883ffff8a8bffff1c8dfffff896ffff7c97ffff58b9ffff9abeffff76c2ffff4cd3ffff58fbffff784300003e4400007c4400006eb00000
+      m_ExpandedIDs: a801feff1802feff4803fefffc0dfeffbe4afefff24dfeff1857feff1e57feff8a59feffa85afeffe8b7feff36b9feffe8d0feff84d1feffced1feff36d2feffd2d2feff5edffeff4eeafeffaa3fffff2c4effffa451ffff0452ffffd65dffff1861ffffca62ffff1663ffff9cceffffa4defffface9ffff00f9ffff0cf9ffff92faffff62fbffff56450000724500001c460000ae68000062690000ac6900005e8b0000cca00000e8a0000010a200009cc8000042cd0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -458,9 +458,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.656935, y: 6.625875, z: -6.469404}
+    m_Target: {x: 186.51086, y: 375.02454, z: -71.62276}
     speed: 2
-    m_Value: {x: -4.656935, y: 6.625875, z: -6.469404}
+    m_Value: {x: 186.51086, y: 375.02454, z: -71.62276}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -511,9 +511,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.868578
+    m_Target: 345.08047
     speed: 2
-    m_Value: 4.868578
+    m_Value: 345.08047
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -576,22 +576,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Bullets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Bullets
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\MyUnityProjects\VKRGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 142}
-    m_SelectedIDs: 16460000
-    m_LastClickedID: 17942
-    m_ExpandedIDs: 00000000044600000646000008460000164600001a46000000ca9a3b
+    scrollPos: {x: 0, y: 158}
+    m_SelectedIDs: fe440000
+    m_LastClickedID: 17662
+    m_ExpandedIDs: 00000000e2440000e4440000e6440000e8440000f64400005e5800006e5b0000265f00005863000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000044600000646000008460000
+    m_ExpandedIDs: 00000000e2440000e4440000e6440000e8440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -647,7 +647,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000000000000
+    m_ExpandedInstanceIDs: c623000000000000fe480000fc480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

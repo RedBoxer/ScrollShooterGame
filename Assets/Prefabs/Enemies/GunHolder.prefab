@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967635075765348789}
-  - component: {fileID: 967635075765348794}
   - component: {fileID: 967635075765348795}
   - component: {fileID: 967635075765348788}
   m_Layer: 0
@@ -35,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &967635075765348794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967635075765348790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c77d8cd8b5b00845a116f234ce07e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 0}
-  healthBar: {fileID: 0}
-  Bullet: {fileID: 0}
 --- !u!114 &967635075765348795
 MonoBehaviour:
   m_ObjectHideFlags: 0

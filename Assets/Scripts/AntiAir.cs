@@ -7,8 +7,8 @@ public class AntiAir : BaseBoss
 {
     public AntiAirGun[] guns;
 
-    private float checkTime = 2;
-    private int currentGun = 0;
+    protected float checkTime = 2;
+    protected int currentGun = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +62,7 @@ public class AntiAir : BaseBoss
         }
     }
 
-    int NotNullGuns()
+    protected int NotNullGuns()
     {
         int result = 0;
         for (int i = 0; i < guns.Length; i++)

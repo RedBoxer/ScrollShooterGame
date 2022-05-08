@@ -8,11 +8,16 @@ public class AntiAirGun : MonoBehaviour
     public GameObject healthBar;
     public Bullet Bullet;
 
-    private int health = 2;
+    public int MaxHealth = 2;
+    private int health;
     private GameObject Player;
+
+    private float fraction;
     void Start()
     {     
         Player = GameObject.Find("Player");
+        health = MaxHealth;
+        fraction = (1 / MaxHealth) * healthBar.transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -34,7 +39,7 @@ public class AntiAirGun : MonoBehaviour
         {
             health -= 1;
 
-            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x / 2, healthBar.transform.localScale.y);
+            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - fraction, healthBar.transform.localScale.y);
 
             if (health == 0)
             {

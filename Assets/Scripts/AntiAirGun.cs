@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AntiAirGun : MonoBehaviour
+public class AntiAirGun : Enemy
 {
     public GameObject gun;
     public GameObject healthBar;
@@ -13,6 +13,8 @@ public class AntiAirGun : MonoBehaviour
     private GameObject Player;
 
     private float fraction;
+
+    public bool invincible = false;
     void Start()
     {     
         Player = GameObject.Find("Player");
@@ -21,7 +23,7 @@ public class AntiAirGun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         Quaternion rotation = Quaternion.LookRotation(Player.transform.position - gun.transform.position,
                 transform.TransformDirection(Vector3.forward));
@@ -30,20 +32,23 @@ public class AntiAirGun : MonoBehaviour
 
     public void MakeShot()
     {
-        Instantiate(Bullet, gun.transform.position, gun.transform.rotation);
+       Instantiate(Bullet, gun.transform.position, gun.transform.rotation);  
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D other)
+    new public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            health -= 1;
-
-            healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - fraction, healthBar.transform.localScale.y);
-
-            if (health == 0)
+            if (!invincible)
             {
-                Destroy(this.gameObject);
+                health -= 1;
+
+                healthBar.transform.localScale = new Vector2(healthBar.transform.localScale.x - fraction, healthBar.transform.localScale.y);
+
+                if (health == 0)
+                {
+                    Destroy(this.gameObject);
+                }
             }
 
             Destroy(other.gameObject);

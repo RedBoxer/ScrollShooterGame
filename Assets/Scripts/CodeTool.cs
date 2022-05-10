@@ -78,6 +78,24 @@ public class CodeTool : MonoBehaviour
                 killedBosses[5] = true;
                 equipedWeapons[5] = pair.Value;
             }
+
+            if (pair.Key == "Saucer")
+            {
+                killedBosses[6] = true;
+                equipedWeapons[6] = pair.Value;
+            }
+
+            if (pair.Key == "Submarine")
+            {
+                killedBosses[7] = true;
+                equipedWeapons[7] = pair.Value;
+            }
+
+            if (pair.Key == "Station")
+            {
+                killedBosses[8] = true;
+                equipedWeapons[8] = pair.Value;
+            }
         }
 
         byte[] data = new byte[2];
@@ -144,10 +162,20 @@ public class CodeTool : MonoBehaviour
                 {
                     result.confirmKill("Saucer");
                 }
-                //blockNum++;
+
+                if (bits[7])
+                {
+                    result.confirmKill("Submarine");
+                }
+
+                blockNum++;
             }
             else 
-            { 
+            {
+                if (bits[0])
+                {
+                    result.confirmKill("Station");
+                }
             }
         }
 
@@ -194,10 +222,20 @@ public class CodeTool : MonoBehaviour
                 {
                     result.equipWeapon("Saucer");
                 }
-                //blockNum++;
+
+                if (bits[7])
+                {
+                    result.equipWeapon("Submarine");
+                }
+
+                blockNum++;
             }
             else
             {
+                if (bits[0])
+                {
+                    result.equipWeapon("Station");
+                }
             }
         }
 
@@ -223,6 +261,15 @@ public class CodeTool : MonoBehaviour
     {
         var encoded = new Texture2D(256, 256);
         var color32 = Encode(UserDataToCode(user), encoded.width, encoded.height);
+        encoded.SetPixels32(color32);
+        encoded.Apply();
+        return encoded;
+    }
+
+    public Texture2D CreateQRCode(string str)
+    {
+        var encoded = new Texture2D(256, 256);
+        var color32 = Encode(str, encoded.width, encoded.height);
         encoded.SetPixels32(color32);
         encoded.Apply();
         return encoded;

@@ -65,8 +65,10 @@ public class DeathScreen : MonoBehaviour
                 }
 
                 break;
-            case "Standartc":
+            case "StandartC":
             case "AntiAir":
+            case "Submarine":
+            case "Station":
                 currentUser.DisableAllCases();
 
                 if (button.tag != "StandartC")

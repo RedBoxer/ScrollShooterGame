@@ -27,4 +27,9 @@ public class Case : MonoBehaviour
             isPlayer = true;
         }
     }
+
+    public virtual void OnCollision()
+    {
+
+    }
 }

@@ -14,6 +14,9 @@ public class UserCreation : MonoBehaviour
 
     public Text scanResult;
     private MainManager.UserData savedUser;
+
+    public GameObject QrCodeScreen;
+    public Image QrCode;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,11 +59,21 @@ public class UserCreation : MonoBehaviour
     {
         codeInput.text = scanResult.text;
         ScanScreen.SetActive(false);
+        if (!this.gameObject.active)
+        {
+            MainManager.Instance.UL.clientId = codeInput.text;
+        }
+        codeInput.text = "";
     }    
 
     public void onScanPressed()
     {
+#if !UNITY_ANDROID      
+        QrCode.material.mainTexture = CodeTool.Instance.CreateQRCode(MainManager.Instance.UL.clientId);
+        QrCodeScreen.SetActive(true);
+#else
         CodeTool.Instance.ReadQRCode();
         ScanScreen.SetActive(true);
+#endif
     }
 }

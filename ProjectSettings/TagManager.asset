@@ -18,6 +18,8 @@ TagManager:
   - Jet
   - Train
   - Saucer
+  - Submarine
+  - Station
   layers:
   - Default
   - TransparentFX

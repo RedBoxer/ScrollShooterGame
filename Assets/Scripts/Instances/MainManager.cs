@@ -89,6 +89,16 @@ public class MainManager : MonoBehaviour
                 {
                     killedBosses["AntiAir"] = false;
                 }
+
+                if (key == "Submarine")
+                {
+                    killedBosses["Submarine"] = false;
+                }
+
+                if (key == "Station")
+                {
+                    killedBosses["Station"] = false;
+                }
             }
         }
     }
@@ -100,6 +110,8 @@ public class MainManager : MonoBehaviour
         public string User2;
         public string User3;
         public int currentUser = -1;
+        public string clientId = "";
+        public bool crossSave = false;
     }
 
     
@@ -121,6 +133,13 @@ public class MainManager : MonoBehaviour
         LoadGame();
     }
 
+    public void SetClientId(string id)
+    {
+        if (UL.clientId == "")
+        {
+            UL.clientId = id;
+        }
+    }
     public void SetCurrentUserScore(int gameScore)
     {
         UserData currentUser = users[UL.currentUser];
@@ -161,10 +180,10 @@ public class MainManager : MonoBehaviour
     {
         UpdateUserNames();
         SaveUserList();
-        SaveEachUser();
+        SaveEachUser();      
     }
 
-    void UpdateUserNames()
+    public void UpdateUserNames()
     {
         UL.User1 = users[0].Name;
         UL.User2 = users[1].Name;

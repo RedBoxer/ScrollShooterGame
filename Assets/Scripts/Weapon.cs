@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
         currentUser = MainManager.Instance.GetCurrentUser();
         currentBarrel = "Standart";
         currentBullet = 0;
+        currentCase = 0;
         foreach (KeyValuePair<string, bool> pair in currentUser.killedBosses)
         {
             if ((pair.Key == "Car" || pair.Key == "Hellicopter" || pair.Key == "Saucer") && pair.Value)
@@ -58,12 +59,18 @@ public class Weapon : MonoBehaviour
                 }
             }
 
-            if ((pair.Key == "AntiAir") && pair.Value)
+            if ((pair.Key == "AntiAir" || pair.Key == "Submarine" || pair.Key == "Station") && pair.Value)
             {
                 switch (pair.Key)
                 {
                     case "AntiAir":
                         currentCase = 1;
+                        break;
+                    case "Submarine":
+                        currentCase = 2;
+                        break;
+                    case "Station":
+                        currentCase = 3;
                         break;
                 }
             }

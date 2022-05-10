@@ -9,6 +9,8 @@ public class AntiAir : BaseBoss
 
     protected float checkTime = 2;
     protected int currentGun = 0;
+
+    public bool shotAllowed = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +52,11 @@ public class AntiAir : BaseBoss
                 }
             }
 
-            guns[currentGun].MakeShot();
-            currentGun++;
+            if (shotAllowed)
+            {
+                guns[currentGun].MakeShot();
+                currentGun++;
+            }
 
             if (currentGun >= guns.Length)
             {

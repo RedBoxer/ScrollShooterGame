@@ -132,7 +132,6 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<DeathScreen>(true).gameObject.SetActive(true);
             isDead = true;
-            //SceneManager.LoadScene(0);
         }
     }
 

@@ -14,11 +14,22 @@ public class MenuController : MonoBehaviour
     public Text score;
     public Text placeHolder;
 
+    public Button pcConnection;
+    public Text pcConText;
+
     public UserSelection UserSelection;
     // Start is called before the first frame update
     void Start()
     {
-        UpdateCurrentUser();   
+        UpdateCurrentUser();
+#if !UNITY_ANDROID
+        pcConText.text = "Show this pc code";
+#endif
+    }
+
+    private void OnEnable()
+    {
+        ServerManager.Instance.CheckCon();
     }
 
     public void UpdateCurrentUser()
@@ -32,9 +43,13 @@ public class MenuController : MonoBehaviour
             username.text = MainManager.Instance.GetCurrentUserName();
             score.text = "High Score: " + MainManager.Instance.GetCurrentUserScore();
 
-            string code = CodeTool.Instance.UserDataToCode(MainManager.Instance.GetCurrentUser());
-            Debug.Log(code);
-            CodeTool.Instance.CodeToUserData(code);
+            if (MainManager.Instance.UL.clientId != "")
+            {
+#if UNITY_ANDROID
+                pcConnection.interactable = false;
+                pcConText.text = "Connected";
+#endif
+            }
         }
         else
         {
@@ -50,7 +65,11 @@ public class MenuController : MonoBehaviour
     {
         FindObjectOfType<UserSelection>(true).gameObject.SetActive(true);
     }
-
+    
+    public void OnBackPressed()
+    {
+        GameObject.Find("QRCode").SetActive(false);
+    }
     public void Exit()
     {
         MainManager.Instance.SaveGame();

@@ -14,7 +14,6 @@ public class SplitCase : Case
         Player = GameObject.Find("Player");
         prespawnPlayerPos = Player.transform.position;
         caseId = 1;
-        //caseless.changeCase(0);
     }
 
     // Update is called once per frame

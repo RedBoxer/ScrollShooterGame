@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : Bullet
-{ 
-    // Update is called once per frame
-    void Update()
+{
+    private void Start()
     {
-        transform.Translate(Vector2.down * Time.deltaTime * speed);
+        isPlayer = false;
+        this.GetComponent<Rigidbody2D>().AddForce(this.transform.up * speed * -1 * 30);
+    }
+    // Update is called once per frame
+    protected override void Update()
+    {
+        
     }
 }

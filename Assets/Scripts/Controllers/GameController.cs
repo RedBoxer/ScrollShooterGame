@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
 
     public void ResetGame()
     {
+        MainManager.Instance.SetCurrentUserScore(score);
         score = 0;
         UpdateScore();
         player.ResetPlayer();  
@@ -54,11 +55,16 @@ public class GameController : MonoBehaviour
         {
             Destroy(enemy.gameObject);
         }
+        foreach (EnemyBullet enemy in FindObjectsOfType<EnemyBullet>())
+        {
+            Destroy(enemy.gameObject);
+        }
     }
 
     private void OnDestroy()
     {
         MainManager.Instance.SetCurrentUserScore(score);
         MainManager.Instance.SaveGame();
+        ServerManager.Instance.SendSave();
     }
 }

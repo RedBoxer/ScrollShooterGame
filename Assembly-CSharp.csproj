@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Submarine.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\Case.cs" />
     <Compile Include="Assets\Scripts\AntiAirGun.cs" />
@@ -64,8 +65,11 @@
     <Compile Include="Assets\Scripts\CodeTool.cs" />
     <Compile Include="Assets\MenuScripts\DeathScreen.cs" />
     <Compile Include="Assets\Scripts\Controllers\SpawnController.cs" />
+    <Compile Include="Assets\Scripts\FollowingCase.cs" />
     <Compile Include="Assets\Scripts\RotateClockWise.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Wall.cs" />
+    <Compile Include="Assets\Scripts\Train.cs" />
     <Compile Include="Assets\Scripts\Behaviors\SpawnPoint.cs" />
     <Compile Include="Assets\MenuScripts\MenuController.cs" />
     <Compile Include="Assets\Scripts\DestroyOutOfBounds.cs" />
@@ -73,11 +77,17 @@
     <Compile Include="Assets\Scripts\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\SimpleJSON.cs" />
+    <Compile Include="Assets\Scripts\RicochetCase.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\BuildingSpawnWave.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\SpawnWave.cs" />
+    <Compile Include="Assets\Scripts\Saucer.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Car.cs" />
+    <Compile Include="Assets\Scripts\ServerManager.cs" />
     <Compile Include="Assets\Scripts\AntiAir.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\CarSpawn.cs" />
+    <Compile Include="Assets\Scripts\SpaceStation.cs" />
+    <Compile Include="Assets\Scripts\Jet.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\SpawnWaveRain.cs" />
     <Compile Include="Assets\Scripts\Behaviors\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves\HelicopterSpawn.cs" />
@@ -87,10 +97,6 @@
     <Compile Include="Assets\MenuScripts\UserSelection.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Helicopter.cs" />
     <Compile Include="Assets\Scripts\CarCollision.cs" />
-    <Compile Include="Assets\Scripts\Jet.cs" />
-    <Compile Include="Assets\Scripts\Wall.cs" />
-    <Compile Include="Assets\Scripts\Train.cs" />
-    <Compile Include="Assets\Scripts\Saucer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\zxing.unity.dll" />

@@ -24,7 +24,7 @@ app.get("/getSave/:id", (req, res) => {
 app.post("/sendUser/:id", jsonParser, (req, res) => {
     var user = req.body;
     console.log(user);
-    fs.writeFile(req.params["id"] + ".json", JSON.stringify(user));
+    fs.writeFile(req.params["id"] + ".json", JSON.stringify(user), function (err, data){if (err) throw err;});
     res.send();
 });
 

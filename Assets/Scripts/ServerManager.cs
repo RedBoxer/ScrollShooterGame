@@ -64,9 +64,7 @@ public class ServerManager : MonoBehaviour
         else 
         {
             Debug.Log(req.downloadHandler.text);
-            
-            connectionActive = true;
-            
+            connectionActive = true;         
         }
     }
 

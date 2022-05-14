@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (healthPoints == 0)
         {
             FindObjectOfType<DeathScreen>(true).gameObject.SetActive(true);
+            FindObjectOfType<GameController>().ResetGame();
             isDead = true;
         }
     }

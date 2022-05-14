@@ -17,10 +17,12 @@ public class UserCreation : MonoBehaviour
 
     public GameObject QrCodeScreen;
     public Image QrCode;
+
+    private Texture emptyTexture;
     // Start is called before the first frame update
     void Start()
     {
-        
+        emptyTexture = QrCode.material.mainTexture;
     }
 
     // Update is called once per frame
@@ -45,12 +47,14 @@ public class UserCreation : MonoBehaviour
             savedUser = CodeTool.Instance.CodeToUserData(codeInput.text);
             savedUser.Name = nameInput.text;
             MainManager.Instance.users[MainManager.Instance.UL.currentUser] = savedUser;
+
         }
         else
         {
             MainManager.Instance.users[MainManager.Instance.UL.currentUser].Name = nameInput.text;
         }
-     
+
+        codeInput.text = "";
         FindObjectOfType<UserSelection>(true).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -62,8 +66,9 @@ public class UserCreation : MonoBehaviour
         if (!this.gameObject.active)
         {
             MainManager.Instance.UL.clientId = codeInput.text;
-        }
-        codeInput.text = "";
+            codeInput.text = "";
+            QrCode.material.mainTexture = emptyTexture;
+        }   
     }    
 
     public void onScanPressed()

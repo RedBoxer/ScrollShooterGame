@@ -19,7 +19,7 @@ public class AntiAirGun : Enemy
     {     
         Player = GameObject.Find("Player");
         health = MaxHealth;
-        fraction = (1 / MaxHealth) * healthBar.transform.localScale.x;
+        fraction = healthBar.transform.localScale.x / MaxHealth;
     }
 
     // Update is called once per frame

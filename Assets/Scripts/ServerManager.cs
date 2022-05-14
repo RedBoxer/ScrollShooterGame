@@ -53,18 +53,20 @@ public class ServerManager : MonoBehaviour
     }
     IEnumerator CheckConnection()
     {
+        cloud.interactable = false;
         UnityWebRequest req = UnityWebRequest.Get(serverAddress + "/check");
         yield return req.SendWebRequest();
 
         if (req.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(req.error);
-            cloud.interactable = false;
+            
         }
         else 
         {
             Debug.Log(req.downloadHandler.text);
-            connectionActive = true;         
+            connectionActive = true;
+            cloud.interactable = true;
         }
     }
 

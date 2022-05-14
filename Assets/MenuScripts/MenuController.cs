@@ -43,13 +43,15 @@ public class MenuController : MonoBehaviour
             username.text = MainManager.Instance.GetCurrentUserName();
             score.text = "High Score: " + MainManager.Instance.GetCurrentUserScore();
 
+#if UNITY_ANDROID
             if (MainManager.Instance.UL.clientId != "")
             {
-#if UNITY_ANDROID
+
                 pcConnection.interactable = false;
                 pcConText.text = "Connected";
-#endif
+
             }
+#endif
         }
         else
         {
@@ -68,6 +70,7 @@ public class MenuController : MonoBehaviour
     
     public void OnBackPressed()
     {
+        UpdateCurrentUser();
         GameObject.Find("QRCode").SetActive(false);
     }
     public void Exit()

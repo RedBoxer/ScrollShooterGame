@@ -1,13 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - AntiAir
     - AntiAirGun
     - BuildingSpawnWave
     - Bullet
-    - Car
-    - CarCollision
-    - CarSpawn
     - Case
     - CodeTool
     - DeathScreen
@@ -16,24 +12,16 @@ ScriptsOnlyBuild:
     - EnemyBullet
     - FollowingCase
     - GameController
-    - Helicopter
-    - HelicopterSpawn
-    - Jet
     - MainManager
     - MenuController
     - PlayerController
     - RicochetCase
-    - RotateClockWise
-    - Saucer
     - ServerManager
-    - SpaceStation
     - SpawnController
     - SpawnPoint
     - SpawnWave
     - SpawnWaveRain
     - SplitCase
-    - Submarine
-    - Tank
     - Train
     - UserCreation
     - UserSelection
@@ -159,10 +147,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1512}
-    - Class: 114
-      Script: {instanceID: 1694}
-    - Class: 114
       Script: {instanceID: 1726}
     - Class: 114
       Script: {instanceID: 1986}
@@ -180,8 +164,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2982}
     - Class: 114
       Script: {instanceID: 3028}
-    - Class: 114
-      Script: {instanceID: 3112}
     - Class: 114
       Script: {instanceID: 3114}
     - Class: 114
@@ -211,29 +193,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3948}
     - Class: 114
-      Script: {instanceID: 4118}
-    - Class: 114
-      Script: {instanceID: 4200}
-    - Class: 114
-      Script: {instanceID: 4258}
-    - Class: 114
-      Script: {instanceID: 4340}
-    - Class: 114
-      Script: {instanceID: 4658}
-    - Class: 114
-      Script: {instanceID: 4688}
-    - Class: 114
       Script: {instanceID: 4702}
     - Class: 114
       Script: {instanceID: 4720}
     - Class: 114
-      Script: {instanceID: 4920}
-    - Class: 114
       Script: {instanceID: 5504}
-    - Class: 114
-      Script: {instanceID: 5824}
-    - Class: 114
-      Script: {instanceID: 5932}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

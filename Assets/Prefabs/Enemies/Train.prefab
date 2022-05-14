@@ -393,6 +393,7 @@ MonoBehaviour:
   - {fileID: 6176299163142932175}
   - {fileID: 66651974704649736}
   - {fileID: 66651974568713495}
+  shotAllowed: 1
   WallSpawner: {fileID: 9163412305330893167}
   Wall: {fileID: 4904064891436523137, guid: eebc7272be6430e4a9aa36c9a5be4d76, type: 3}
 --- !u!1 &9163412306195321778
@@ -420,8 +421,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9163412306195321778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 11.62, z: 0}
-  m_LocalScale: {x: 53.338, y: 1.85, z: 1}
+  m_LocalPosition: {x: 16.0227, y: 11.62, z: 0}
+  m_LocalScale: {x: 162.62518, y: 1.85, z: 1}
   m_Children: []
   m_Father: {fileID: 9163412306087965077}
   m_RootOrder: 5

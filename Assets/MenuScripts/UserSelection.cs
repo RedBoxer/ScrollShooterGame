@@ -120,6 +120,7 @@ public class UserSelection : MonoBehaviour
         File.Delete(Application.persistentDataPath + "/" + MainManager.Instance.users[user].Name + ".json");
         MainManager.Instance.users[user].Name = "";
         MainManager.Instance.users[user].HighScore = 0;
+        MainManager.Instance.users[user].killedBosses.Clear();
         MainManager.Instance.UpdateUserNames();
         MainManager.Instance.SetCurrentUser(-1);
         LoadUsersToSelection();

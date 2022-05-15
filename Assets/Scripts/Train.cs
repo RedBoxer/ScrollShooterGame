@@ -9,6 +9,7 @@ public class Train : AntiAir
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = guns.Length;
         base.Start();
         bossName = "Train";
     }

@@ -45,9 +45,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-
 #if UNITY_ANDROID
         if (Input.touchCount >= 1)
         {
@@ -56,7 +53,9 @@ public class PlayerController : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 touchPos = touch.deltaPosition;
-                transform.position = new Vector3(transform.position.x + touchPos.x * 0.04f, transform.position.y + touchPos.y * 0.04f, transform.position.z);
+                transform.position = new Vector3(transform.position.x + touchPos.x * 0.04f, 
+                                                 transform.position.y + touchPos.y * 0.04f, 
+                                                 transform.position.z);
             }
 
         if(
@@ -64,8 +63,7 @@ public class PlayerController : MonoBehaviour
         /////////////////////////////////
         /// if space pressed spawn bullet every shotDelay seconds
         if (Input.GetKey(KeyCode.Space) &&
-#endif
-        
+#endif       
          !isDead)
         {
             weapon.MakeShot();    

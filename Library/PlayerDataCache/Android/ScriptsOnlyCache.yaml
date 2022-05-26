@@ -42,7 +42,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -111,11 +110,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3494}
     - Class: 114
-      Script: {instanceID: 4250}
+      Script: {instanceID: 4248}
     - Class: 114
-      Script: {instanceID: 5212}
+      Script: {instanceID: 5210}
     - Class: 114
-      Script: {instanceID: 5614}
+      Script: {instanceID: 5612}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -202,35 +201,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3624}
     - Class: 114
-      Script: {instanceID: 3808}
+      Script: {instanceID: 3806}
     - Class: 114
-      Script: {instanceID: 3896}
+      Script: {instanceID: 3894}
     - Class: 114
-      Script: {instanceID: 3948}
+      Script: {instanceID: 3946}
     - Class: 114
-      Script: {instanceID: 4118}
+      Script: {instanceID: 4116}
     - Class: 114
-      Script: {instanceID: 4200}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4258}
+      Script: {instanceID: 4256}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 4338}
     - Class: 114
-      Script: {instanceID: 4658}
+      Script: {instanceID: 4656}
     - Class: 114
-      Script: {instanceID: 4688}
+      Script: {instanceID: 4686}
     - Class: 114
-      Script: {instanceID: 4702}
+      Script: {instanceID: 4700}
     - Class: 114
-      Script: {instanceID: 4720}
+      Script: {instanceID: 4718}
     - Class: 114
-      Script: {instanceID: 4920}
+      Script: {instanceID: 4918}
     - Class: 114
-      Script: {instanceID: 5504}
+      Script: {instanceID: 5502}
     - Class: 114
-      Script: {instanceID: 5824}
+      Script: {instanceID: 5822}
     - Class: 114
-      Script: {instanceID: 5932}
+      Script: {instanceID: 5930}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -462,7 +461,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 5949b372db6f17d9d8f21af443355ddf
+      Hash: 92bf8ca2c0dc978c44c06a58f51e5bf9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnController
@@ -998,4 +997,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MenuScene.unity
   - Assets/Scenes/PlayingScene.unity
-  playerPath: D:/MyUnityProjects/TestBuildVKR/AndroidBuild.apk
+  playerPath: D:/MyUnityProjects/AndroidBuild.apk
